@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Kanit", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7, transparent 40%),
+        radial-gradient(circle at bottom right, #ffb6d0, transparent 40%),
+        linear-gradient(135deg, #fff0f6, #ffd9e8);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: 90%;
+    max-width: 480px;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 20px 60px rgba(231, 84, 128, 0.18);
+
+    position: relative;
+
+    animation: cardIn 0.8s ease;
+}
+
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.bear {
+    font-size: 65px;
+    margin-bottom: 10px;
+
+    animation: float 2s ease-in-out infinite;
+}
+
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+.small-text {
+    color: #d96c91;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+
+h1 {
+    color: #4d3540;
+
+    font-size: 36px;
+
+    line-height: 1.35;
+
+    margin-bottom: 18px;
+}
+
+
+h1 span {
+    display: block;
+    color: #f05f91;
+}
+
+
+.description,
+.love-message {
+    color: #7b626b;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.buttons {
+    min-height: 80px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    position: relative;
+}
+
+
+button {
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.yes-btn {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff6fa3,
+            #ee4f87
+        );
+
+    box-shadow:
+        0 10px 25px rgba(238,79,135,.35);
+}
+
+
+.yes-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.06);
+
+    box-shadow:
+        0 15px 30px rgba(238,79,135,.45);
+}
+
+
+.no-btn {
+
+    background: #fff;
+
+    color: #b5758c;
+
+    border: 1px solid #ffd0df;
+
+    position: relative;
+}
+
+
+/* =========================
+   HINT
+========================= */
+
+.hint {
+
+    margin-top: 12px;
+
+    color: #c59aa9;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   SUCCESS
+========================= */
+
+.hidden {
+    display: none;
+}
+
+
+.success-card {
+
+    animation:
+        cardIn .8s ease;
+}
+
+
+.big-heart {
+
+    font-size: 85px;
+
+    margin-bottom: 15px;
+
+    animation:
+        heartbeat 1s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.15);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   DATE BOX
+========================= */
+
+.date-box {
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f6,
+            #ffe0eb
+        );
+
+    color: #d85783;
+
+    margin-top: 10px;
+}
+
+
+.date-box span {
+
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.date-box strong {
+
+    font-size: 20px;
+}
+
+
+.footer-text {
+
+    margin-top: 25px;
+
+    color: #e99ab5;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FLOAT HEART
+========================= */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    animation:
+        heartFloat linear forwards;
+}
+
+
+@keyframes heartFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .card {
+        padding: 38px 22px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+}

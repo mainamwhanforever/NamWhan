@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มีอะไรจะถาม 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- หัวใจพื้นหลัง -->
+    <div class="hearts"></div>
+
+    <!-- หน้าขอเป็นแฟน -->
+    <main class="card" id="questionPage">
+        
+		<div class="bear">🌷💕</div>
+
+        <p class="small-text">มีอะไรสำคัญอยากถามหน่อยน้า...</p>
+
+        <h1>
+            เป็นแฟนกันนะ
+            <span>ได้ไหมฮะ? 💖</span>
+        </h1>
+
+        <p class="description">
+            พี่อยากจะเป็นแฟนคนแรก<br>
+            และอยากจะเป็นคนสุดท้ายของน้ำหวานน้า 🌹
+        </p>
+
+        <div class="buttons">
+
+            <button
+                id="yesBtn"
+                class="yes-btn"
+                onclick="sayYes()"
+            >
+                ตกลงเป็นแฟน 💗
+            </button>
+
+            <button
+                id="noBtn"
+                class="no-btn"
+            >
+                ขออยู่คนเดียว 🙈
+            </button>
+
+        </div>
+
+        <p class="hint">
+            คิดดี ๆ นะฮะ 🤭
+        </p>
+
+    </main>
+
+
+    <!-- หน้าหลังกดตกลง -->
+    <main class="card success-card hidden" id="successPage">
+
+        <div class="big-heart">
+            💖
+        </div>
+
+        <p class="small-text">
+            เย้! ขอบคุณน้าาา 🎉
+        </p>
+
+        <h1>
+            ตั้งแต่วันนี้
+            <span>เราเป็นแฟนกันแล้วนะ 💗</span>
+        </h1>
+
+        <p class="love-message">
+            ขอบคุณที่ตอบตกลงนะ 🥺💕
+            <br><br>
+            ต่อจากนี้ฝากตัวด้วยนะ
+            <br>
+            จะพยายามทำให้ทุกวันของเราน่ารักแบบวันนี้เลย 🌷
+        </p>
+
+        <div class="date-box">
+            <span>💞 Our First Day 💞</span>
+            <strong id="loveDate"></strong>
+        </div>
+
+        <p class="footer-text">
+            ♡ NamWhan & P'Mai ♡
+        </p>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
