@@ -382,3 +382,160 @@ button {
     }
 
 }
+
+/* =========================
+   INSTAGRAM-STYLE INTRO
+========================= */
+
+.ig-card {
+    width: 92%;
+    max-width: 390px;
+    min-height: 600px;
+    background: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 22px 65px rgba(80, 35, 55, .18);
+    position: relative;
+    z-index: 10;
+    animation: cardIn .7s ease;
+}
+
+.ig-topbar {
+    height: 64px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #efefef;
+}
+
+.ig-logo {
+    font-family: cursive;
+    font-size: 26px;
+    font-weight: 600;
+    color: #111;
+}
+
+.ig-icons {
+    color: #111;
+    font-size: 24px;
+}
+
+.ig-request-label {
+    padding: 18px 22px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+    text-align: left;
+}
+
+.ig-profile-wrap {
+    padding: 28px 30px 35px;
+    text-align: center;
+}
+
+.ig-avatar-ring {
+    width: 126px;
+    height: 126px;
+    margin: 5px auto 18px;
+    padding: 4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
+}
+
+.ig-avatar,
+.ig-avatar-fallback {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+
+.ig-avatar {
+    display: block;
+    object-fit: cover;
+}
+
+.ig-avatar-fallback {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffe0eb, #ff91b8);
+    color: white;
+    font-size: 46px;
+    font-weight: 600;
+}
+
+.ig-name {
+    color: #262626;
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.ig-username {
+    color: #8e8e8e;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.ig-message {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.ig-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.ig-confirm,
+.ig-delete {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ig-confirm {
+    background: #0095f6;
+    color: #fff;
+}
+
+.ig-confirm:hover {
+    background: #1877f2;
+}
+
+.ig-delete {
+    background: #efefef;
+    color: #262626;
+}
+
+.ig-delete:hover {
+    background: #dbdbdb;
+}
+
+.ig-note {
+    margin-top: 22px;
+    color: #8e8e8e;
+    font-size: 12px;
+    min-height: 18px;
+}
+
+.intro-out {
+    animation: introOut .35s ease forwards;
+}
+
+@keyframes introOut {
+    to {
+        opacity: 0;
+        transform: scale(.96) translateY(-10px);
+    }
+}
+
+/* Keep hidden pages hidden regardless of component CSS order */
+.hidden {
+    display: none !important;
+}

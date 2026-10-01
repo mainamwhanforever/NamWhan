@@ -1,205 +1,92 @@
-const noBtn = document.getElementById("noBtn");
-const questionPage = document.getElementById("questionPage");
-const successPage = document.getElementById("successPage");
+document.addEventListener("DOMContentLoaded", () => {
+    const introPage = document.getElementById("introPage");
+    const questionPage = document.getElementById("questionPage");
+    const successPage = document.getElementById("successPage");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const confirmBtn = document.querySelector(".ig-confirm");
+    const deleteBtn = document.querySelector(".ig-delete");
+    const igNote = document.getElementById("igNote");
+    const loveDate = document.getElementById("loveDate");
 
+    // หน้าแรก -> หน้าขอเป็นแฟน
+    if (confirmBtn && introPage && questionPage) {
+        confirmBtn.addEventListener("click", () => {
+            introPage.classList.add("intro-out");
 
-/* ==========================
-   ปุ่มไม่ตกลงหนี
-========================== */
-
-function moveNoButton() {
-
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
-
-    const maxX =
-        window.innerWidth - buttonWidth - 20;
-
-    const maxY =
-        window.innerHeight - buttonHeight - 20;
-
-    const randomX =
-        Math.max(
-            20,
-            Math.random() * maxX
-        );
-
-    const randomY =
-        Math.max(
-            20,
-            Math.random() * maxY
-        );
-
-
-    noBtn.style.position = "fixed";
-
-    noBtn.style.left =
-        randomX + "px";
-
-    noBtn.style.top =
-        randomY + "px";
-
-    noBtn.style.zIndex = "999";
-}
-
-
-/* Desktop */
-
-noBtn.addEventListener(
-    "mouseenter",
-    moveNoButton
-);
-
-
-/* Mobile */
-
-noBtn.addEventListener(
-    "touchstart",
-    function(event) {
-
-        event.preventDefault();
-
-        moveNoButton();
+            setTimeout(() => {
+                introPage.classList.add("hidden");
+                questionPage.classList.remove("hidden");
+            }, 350);
+        });
     }
-);
 
-
-/* กันเผลอกด */
-
-noBtn.addEventListener(
-    "click",
-    function(event) {
-
-        event.preventDefault();
-
-        moveNoButton();
+    // ปุ่มลบในหน้า IG
+    if (deleteBtn && igNote) {
+        deleteBtn.addEventListener("click", () => {
+            igNote.textContent = "ลบไม่ได้หรอก 🤭 ลองกดยืนยันดูน้า 💕";
+        });
     }
-);
 
+    // ปุ่ม "ขออยู่คนเดียว" หนี
+    function moveNoButton() {
+        if (!noBtn) return;
 
-/* ==========================
-   กดตกลง
-========================== */
+        const buttonWidth = noBtn.offsetWidth;
+        const buttonHeight = noBtn.offsetHeight;
+        const maxX = Math.max(20, window.innerWidth - buttonWidth - 20);
+        const maxY = Math.max(20, window.innerHeight - buttonHeight - 20);
+        const randomX = 20 + Math.random() * Math.max(0, maxX - 20);
+        const randomY = 20 + Math.random() * Math.max(0, maxY - 20);
 
-function sayYes() {
+        noBtn.style.position = "fixed";
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+        noBtn.style.zIndex = "999";
+    }
 
-    questionPage.classList.add("hidden");
+    if (noBtn) {
+        noBtn.addEventListener("mouseenter", moveNoButton);
+        noBtn.addEventListener("touchstart", (event) => {
+            event.preventDefault();
+            moveNoButton();
+        }, { passive: false });
+        noBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            moveNoButton();
+        });
+    }
 
-    successPage.classList.remove("hidden");
+    // กดตกลงเป็นแฟน
+    if (yesBtn && questionPage && successPage) {
+        yesBtn.addEventListener("click", () => {
+            questionPage.classList.add("hidden");
+            successPage.classList.remove("hidden");
 
-
-    /* วันที่ปัจจุบัน */
-
-    const today =
-        new Date();
-
-
-    const dateText1 =
-        today.toLocaleDateString(
-            "th-TH",
-            {
-                day: "numeric",
-                month: "long",
-                year: "numeric"
+            if (loveDate) {
+                loveDate.textContent = "10/10/2026";
             }
-        );
 
-    const dateText = "10/10/2026"
-
-    document.getElementById(
-        "loveDate"
-    ).textContent = dateText;
-
-
-    /* ปล่อยหัวใจเยอะ ๆ */
-
-    for (
-        let i = 0;
-        i < 30;
-        i++
-    ) {
-
-        setTimeout(
-            createHeart,
-            i * 100
-        );
-
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        });
     }
 
-}
+    function createHeart() {
+        const heart = document.createElement("div");
+        const hearts = ["💗", "💖", "💕", "💞", "🌸"];
 
+        heart.className = "heart";
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+        heart.style.animationDuration = `${Math.random() * 3 + 4}s`;
 
-/* ==========================
-   HEART ANIMATION
-========================== */
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+    }
 
-function createHeart() {
-
-    const heart =
-        document.createElement("div");
-
-
-    const hearts = [
-        "💗",
-        "💖",
-        "💕",
-        "💞",
-        "🌸"
-    ];
-
-
-    heart.className = "heart";
-
-
-    heart.innerHTML =
-        hearts[
-            Math.floor(
-                Math.random()
-                * hearts.length
-            )
-        ];
-
-
-    heart.style.left =
-        Math.random()
-        * 100
-        + "vw";
-
-
-    heart.style.fontSize =
-        (
-            Math.random()
-            * 20
-            + 15
-        )
-        + "px";
-
-
-    heart.style.animationDuration =
-        (
-            Math.random()
-            * 3
-            + 4
-        )
-        + "s";
-
-
-    document.body.appendChild(
-        heart
-    );
-
-
-    setTimeout(
-        () => heart.remove(),
-        7000
-    );
-
-}
-
-
-/* หัวใจพื้นหลัง */
-
-setInterval(
-    createHeart,
-    900
-);
+    // หัวใจพื้นหลัง
+    setInterval(createHeart, 900);
+});

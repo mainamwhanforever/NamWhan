@@ -13,8 +13,36 @@
     <!-- หัวใจพื้นหลัง -->
     <div class="hearts"></div>
 
+    <!-- หน้าแรก: Instagram-style friend request -->
+    <main class="ig-card" id="introPage">
+        <div class="ig-topbar">
+            <div class="ig-logo">Instagram</div>
+            <div class="ig-icons">♡　⌁</div>
+        </div>
+
+        <!-- <div class="ig-request-label">คำขอติดตามใหม่</div> -->
+
+        <div class="ig-profile-wrap">
+            <div class="ig-avatar-ring">
+                <img class="ig-avatar" src="A.jpg" alt="IAMMAI profile" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="ig-avatar-fallback">I</div>
+            </div>
+
+            <h2 class="ig-name">IAMMAI</h2>
+            <p class="ig-username">iammai</p>
+            <p class="ig-message">185 โพสต์ ผู้ติดตาม 842 คน กำลังติดตาม 662 คน</p>
+
+            <div class="ig-actions">
+                <button class="ig-confirm">ติดตาม</button>
+                <button class="ig-delete">ลบ</button>
+            </div>
+
+            <p class="ig-note" id="igNote">กดติดตามเพื่อดูข้อความจาก IAMMAI</p>
+        </div>
+    </main>
+
     <!-- หน้าขอเป็นแฟน -->
-    <main class="card" id="questionPage">
+    <main class="card hidden" id="questionPage">
         
 		<div class="bear">🌷💕</div>
 
@@ -35,7 +63,6 @@
             <button
                 id="yesBtn"
                 class="yes-btn"
-                onclick="sayYes()"
             >
                 ตกลงเป็นแฟน 💗
             </button>
