@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             successPage.classList.remove("hidden");
 
             if (loveDate) {
-                loveDate.textContent = "10/10/2026";
+                loveDate.textContent = "11/11/2026";
             }
 
             for (let i = 0; i < 30; i++) {
